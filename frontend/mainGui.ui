@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>578</width>
-    <height>501</height>
+    <width>843</width>
+    <height>605</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -51,6 +51,9 @@
              <layout class="QHBoxLayout" name="horizontalLayout_4">
               <item>
                <widget class="QPushButton" name="sceneButton">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="text">
                  <string>Szene</string>
                 </property>
@@ -59,7 +62,7 @@
               <item>
                <widget class="QPushButton" name="resultButton">
                 <property name="text">
-                 <string>Result</string>
+                 <string>Ergebnis</string>
                 </property>
                </widget>
               </item>
@@ -79,7 +82,7 @@
                  </sizepolicy>
                 </property>
                 <property name="text">
-                 <string>play</string>
+                 <string>Start</string>
                 </property>
                 <property name="iconSize">
                  <size>
@@ -98,7 +101,7 @@
                  </sizepolicy>
                 </property>
                 <property name="text">
-                 <string>import</string>
+                 <string>Import</string>
                 </property>
                </widget>
               </item>
@@ -117,7 +120,7 @@
                  </size>
                 </property>
                 <property name="text">
-                 <string>export</string>
+                 <string>Export</string>
                 </property>
                </widget>
               </item>
@@ -217,6 +220,9 @@
            <layout class="QVBoxLayout" name="VerticalLayout">
             <item>
              <layout class="QFormLayout" name="renderFormLayout_2">
+              <property name="labelAlignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              </property>
               <item row="0" column="0">
                <widget class="QLabel" name="cameraLabel">
                 <property name="font">
@@ -389,7 +395,10 @@
             </item>
             <item>
              <layout class="QFormLayout" name="renderFormLayout">
-              <item row="1" column="0">
+              <property name="labelAlignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              </property>
+              <item row="2" column="0">
                <layout class="QHBoxLayout" name="horizontalLayout_2">
                 <item>
                  <widget class="QLabel" name="resolutionLabel">
@@ -448,20 +457,6 @@
                 </item>
                </layout>
               </item>
-              <item row="2" column="0">
-               <layout class="QHBoxLayout" name="horizontalLayout_11">
-                <item>
-                 <widget class="QLabel" name="num_light_label">
-                  <property name="text">
-                   <string>Anzahl Lichtquellen</string>
-                  </property>
-                 </widget>
-                </item>
-                <item>
-                 <widget class="QComboBox" name="num_light_comboBox"/>
-                </item>
-               </layout>
-              </item>
               <item row="3" column="0">
                <layout class="QHBoxLayout" name="horizontalLayout_6">
                 <item>
@@ -508,7 +503,7 @@
                 </item>
                </layout>
               </item>
-              <item row="0" column="0">
+              <item row="1" column="0">
                <widget class="QLabel" name="renderLabel">
                 <property name="font">
                  <font>
@@ -678,7 +673,7 @@
             <item row="2" column="0">
              <widget class="QPushButton" name="saveButton_conf">
               <property name="text">
-               <string>speichern</string>
+               <string>Fertig</string>
               </property>
              </widget>
             </item>
@@ -690,6 +685,9 @@
              <layout class="QHBoxLayout" name="horizontalLayout_14">
               <item>
                <widget class="QPushButton" name="sceneButton_conf">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="text">
                  <string>Szene</string>
                 </property>
@@ -697,6 +695,9 @@
               </item>
               <item>
                <widget class="QPushButton" name="resultButton_conf">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
                 <property name="text">
                  <string>Result</string>
                 </property>
@@ -712,21 +713,21 @@
               <item>
                <widget class="QPushButton" name="playButton_conf">
                 <property name="text">
-                 <string>play</string>
+                 <string>Start</string>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="importButton_conf">
                 <property name="text">
-                 <string>import</string>
+                 <string>Import</string>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QPushButton" name="exportButton_conf">
                 <property name="text">
-                 <string>export</string>
+                 <string>Export</string>
                 </property>
                </widget>
               </item>
@@ -762,6 +763,9 @@
               </item>
               <item>
                <widget class="QPushButton" name="resultButton_result">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
                 <property name="text">
                  <string>Result</string>
                 </property>
@@ -883,8 +887,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>578</width>
-     <height>18</height>
+     <width>843</width>
+     <height>43</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuDatei">
@@ -894,12 +898,14 @@
     <addaction name="actionNeue_Szene"/>
     <addaction name="actionSzene_importieren"/>
     <addaction name="actionSzene_speichern"/>
+    <addaction name="separator"/>
     <addaction name="actionSchlie_en"/>
    </widget>
    <widget class="QMenu" name="menuBearbeiten">
     <property name="title">
      <string>Bearbeiten</string>
     </property>
+    <addaction name="actionR_ckg_nig"/>
    </widget>
    <widget class="QMenu" name="menuHilfe">
     <property name="title">
@@ -929,6 +935,11 @@
   <action name="actionSchlie_en">
    <property name="text">
     <string>Schließen</string>
+   </property>
+  </action>
+  <action name="actionR_ckg_nig">
+   <property name="text">
+    <string>Rückgängig</string>
    </property>
   </action>
  </widget>
