@@ -699,7 +699,7 @@
                  <bool>true</bool>
                 </property>
                 <property name="text">
-                 <string>Result</string>
+                 <string>Ergebnis</string>
                 </property>
                </widget>
               </item>
@@ -767,7 +767,7 @@
                  <bool>false</bool>
                 </property>
                 <property name="text">
-                 <string>Result</string>
+                 <string>Ergebnis</string>
                 </property>
                </widget>
               </item>
