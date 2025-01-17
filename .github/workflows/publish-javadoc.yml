@@ -17,7 +17,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           javadoc-branch: javadoc
           java-version: 21
-          target-folder: javadoc # url will be https://<username>.github.io/<repo>/javadoc
+          # target-folder: javadoc # url will be https://<username>.github.io/<repo>/javadoc
           project: maven
           custom-command: mvn -f raytracer/pom.xml javadoc:aggregate
           subdirectories: raytracer
