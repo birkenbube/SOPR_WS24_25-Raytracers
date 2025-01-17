@@ -19,6 +19,8 @@ public interface Hittable {
      * @param t1     Maximum ray parameter
      * @param record Hit record
      * @return Returns true if a hit occurred in the interval.
+     * 
+     *         f <integer v> ...
      */
     boolean hit(Ray ray, double t0, double t1, HitRecord record);
 
