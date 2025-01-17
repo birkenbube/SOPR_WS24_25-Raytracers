@@ -20,7 +20,7 @@ public interface Hittable {
      * @param record Hit record
      * @return Returns true if a hit occurred in the interval.
      * 
-     *         f <integer v> ...
+     *         f <integer v> ...f <integer v> ...
      */
     boolean hit(Ray ray, double t0, double t1, HitRecord record);
 
