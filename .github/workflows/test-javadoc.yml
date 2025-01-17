@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  publish:
+  test-javadoc:
     runs-on: ubuntu-latest
     steps:
       - name: Test JavaDoc documentation
