@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"rayrangers.raytracer"},{"l":"rayrangers.raytracer.algorithm"},{"l":"rayrangers.raytracer.gui"},{"l":"rayrangers.raytracer.math"},{"l":"rayrangers.raytracer.parser"},{"l":"rayrangers.raytracer.view"},{"l":"rayrangers.raytracer.world"}];updateSearchResults();
