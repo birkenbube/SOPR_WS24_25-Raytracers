@@ -19,5 +19,6 @@ jobs:
           java-version: 21
           target-folder: javadoc # url will be https://<username>.github.io/<repo>/javadoc
           project: maven
-          custom-command: mvn -f raytracer/pom.xml javadoc:javadoc -Dmaven.javadoc.failOnError=false
+          custom-command: mvn -f raytracer/pom.xml javadoc:aggregate
           subdirectories: raytracer
+          javadoc-source-folder: target/reports/apidocs
