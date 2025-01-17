@@ -14,13 +14,11 @@ public interface Hittable {
     /**
      * Checks if a ray has a hit in the specified interval [t0; t1].
      * 
-     * @param ray    Ray to check for a hit
-     * @param t0     Minimum ray parameter
-     * @param t1     Maximum ray parameter
-     * @param record Hit record
+     * @param ray    TEST!!!!!
+     * @param t0     TEST!!!!!
+     * @param t1     TEST!!!!!
+     * @param record TEST!!!!!
      * @return Returns true if a hit occurred in the interval.
-     * 
-     *         f <integer v> ...f <integer v> ...
      */
     boolean hit(Ray ray, double t0, double t1, HitRecord record);
 
