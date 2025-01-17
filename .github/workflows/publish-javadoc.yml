@@ -11,8 +11,6 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Navigate to project directory
-        run: cd raytracer
       - name: Deploy JavaDoc documentation
         uses: MathieuSoysal/Javadoc-publisher.yml@v2.5.0
         with:
@@ -21,3 +19,5 @@ jobs:
           java-version: 21
           target-folder: javadoc # url will be https://<username>.github.io/<repo>/javadoc
           project: maven
+          custom-command: mvn -f raytracer/pom.xml javadoc:javadoc
+          subdirectories: raytracer
