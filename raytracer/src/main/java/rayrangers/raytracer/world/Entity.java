@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import rayrangers.raytracer.algorithm.HitRecord;
 import rayrangers.raytracer.algorithm.Ray;
+import rayrangers.raytracer.algorithm.bounding.BoundingVolumeHierarchy;
 import rayrangers.raytracer.math.TrafoMatrix;
 import rayrangers.raytracer.math.Vertex3D;
 
@@ -13,9 +14,10 @@ import rayrangers.raytracer.math.Vertex3D;
  */
 public class Entity implements Hittable, Transformable {
 
-    // TODO: Maybe class TemplateEntity <|---- Entity -------> Hittable, Transformable
-    // TODO: Sphere as Entity?
-    // TODO: Take a look at how UUIDs are handled (e.g. for template entities, clones etc.)
+    // TODO: Maybe class TemplateEntity <|---- Entity -------> Hittable,
+    // Transformable
+    // TODO: Take a look at how UUIDs are handled (e.g. for template entities,
+    // clones etc.)
 
     /**
      * Randomly generated UUID of the entity.
@@ -45,6 +47,11 @@ public class Entity implements Hittable, Transformable {
      * Position of the entity in the world coordinate system.
      */
     private Vertex3D worldPosition;
+
+    /**
+     * BVH tree associated with the entity.
+     */
+    private BoundingVolumeHierarchy bvhTree;
 
     /**
      * Class constructor with a given UUID.
@@ -133,12 +140,12 @@ public class Entity implements Hittable, Transformable {
     @Override
     public boolean hit(Ray ray, double t0, double t1, HitRecord record) {
         boolean hit = false;
-        for (Face face : faces) {
-            // Check if the ray hits the face and if t lies within interval [t0,t1]
-            if (face.hit(ray, t0, t1, record) && record.getT() <= t1 && record.getT() >= t0) {
-                hit = true;
-                t1 = record.getT(); // Update t1 to decrease interval [t0,t1]
-            }
+        // TODO: Deal with entities without transformations
+
+        // Check if the ray hits anything in the BVH tree
+        // and if t lies within interval [t0,t1]
+        if (bvhTree != null && bvhTree.hit(ray, t0, t1, record) && record.getT() <= t1 && record.getT() >= t0) {
+            hit = true;
         }
         return hit;
     }
@@ -148,8 +155,10 @@ public class Entity implements Hittable, Transformable {
      */
     @Override
     public void transform(TrafoMatrix tm) {
+        // Transform all vertices of the Entity
         for (Vertex3D vertex : vertices) {
             vertex.transform(tm);
         }
+        bvhTree = new BoundingVolumeHierarchy(faces);
     }
 }

@@ -171,4 +171,22 @@ public class HitRecord {
     public void setHitObject(Hittable hitObject) {
         this.hitObject = hitObject;
     }
+
+    /**
+     * Sets the fields of this record to the fields of another record.
+     * Has to be used as Java does not support pass by reference.
+     * 
+     * @see <a href="https://stackoverflow.com/a/30520738">Stackoverflow answer</a>
+     * 
+     * @param other HitRecord to copy fields from
+     */
+    public void set(HitRecord other) {
+        this.t = other.t;
+        this.hitPoint = other.hitPoint;
+        this.normalVector = other.normalVector;
+        this.material = other.material;
+        this.viewRayDirection = other.viewRayDirection;
+        this.verticesAll = other.verticesAll;
+        this.hitObject = other.hitObject;
+    }
 }
