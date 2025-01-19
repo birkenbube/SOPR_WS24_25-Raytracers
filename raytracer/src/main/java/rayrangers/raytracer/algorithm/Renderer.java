@@ -38,7 +38,7 @@ public class Renderer {
      * Class constructor specifiying the scene and the UUID of the camera.
      * 
      * @param scene scene to be rendered 
-     * @param cameraUUId UUId of the camera the scene is rendered from
+     * @param cameraUUID UUId of the camera the scene is rendered from
      */
     public Renderer(Scene scene, UUID cameraUUID) {
         this.scene = scene;
