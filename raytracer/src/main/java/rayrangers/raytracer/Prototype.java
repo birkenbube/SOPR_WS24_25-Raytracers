@@ -25,9 +25,11 @@ import javax.imageio.ImageIO;
 public class Prototype {
     public static void main(String[] args) throws Exception {
 
+        long start = System.currentTimeMillis();
+
         Scene scene = new Scene(Color.BLACK);
-        Camera camera = new Camera(new Vertex3D(0, 25, 400), 0, 0, 0, 75, 100, 2000, 2000);
-        // Camera camera = new Camera(new Vertex3D(0, 300, 0), -90, 180, 0, 50, 100, 1000, 1000);
+        // Camera camera = new Camera(new Vertex3D(0, 25, 400), 0, 0, 0, 75, 100, 2000, 2000);
+        Camera camera = new Camera(new Vertex3D(400, 25, 0), 0, 90, 0, 75, 100, 2000, 2000);
         ViewPane viewPane = camera.getViewPane();
 
         scene.addCamera(camera);
@@ -40,27 +42,19 @@ public class Prototype {
         TrafoMatrix tmTuna = new TrafoMatrix(0, 150, 0, -90, 0, 0, 1, 1, 1);
         tuna.transform(tmTuna);
 
-        // List<Vertex3D> vlist = new ArrayList<>();
-        // vlist.add(new Vertex3D(100, 0, 0));
-        // vlist.add(new Vertex3D(0, 100, 0));
-        // vlist.add(new Vertex3D(0, 0, 0));
-
-        // Face f = new Triangle(null, null, vlist);
-
-        // List<Face> faces = new ArrayList<>();
-        // faces.add(f);
-
-        // Entity triangleEnt = new Entity(null, faces, vlist);
-        // scene.addEntity(triangleEnt);
-
         scene.addEntity(teapot);
         scene.addEntity(tuna);
 
         LightSource lightSource1 = new LightSource(0.15, new Vertex3D(300, 250, 200), Color.WHITE);
+        LightSource lightSource2 = new LightSource(0.15, new Vertex3D(300, 50, 0), Color.WHITE);
         scene.addLightSource(lightSource1);
+        scene.addLightSource(lightSource2);
 
         Renderer renderer = new Renderer(scene, camera.getUuid());
         renderer.render();
+
+        long end = System.currentTimeMillis();
+        System.out.printf("Total runtime for rendering: %f s%n", (end - start) / 1000.0);
 
         BufferedImage bufferedImage = new BufferedImage(viewPane.getResX(), viewPane.getResY(),
                 BufferedImage.TYPE_INT_RGB);
